@@ -90,16 +90,23 @@ function createIdolList(idols, targetTableId)
         const anchor = document.createElement("a");
         anchor.href = `detail.html?id=${profile.id}`;
         anchor.innerText = profile.name;
-
         const idolRow = section.insertRow();
         idolRow.className = profile.type;
-        idolRow.insertCell().appendChild(document.createTextNode(profile.type));
+
+        const typeCell = idolRow.insertCell();
+        typeCell.className = profile.type;
+        typeCell.appendChild(document.createTextNode(profile.type));
+
         idolRow.insertCell().appendChild(anchor);
         idolRow.insertCell().appendChild(document.createTextNode(profile.numberofepisodes));
-        idolRow.insertCell().appendChild(document.createTextNode(profile.waitingDays));
-        idolRow.insertCell().appendChild(document.createTextNode(profile.last));
-        idolRow.insertCell().appendChild(document.createTextNode(profile.first));
         idolRow.insertCell().appendChild(document.createTextNode(joinEpisodeType(profile.episodeTypes)));
+
+        const waitingDaysCell = idolRow.insertCell();
+        waitingDaysCell.className = "days";
+        waitingDaysCell.appendChild(document.createTextNode(profile.waitingDays));
+
+        idolRow.insertCell().appendChild(document.createTextNode(profile.last));
+        //idolRow.insertCell().appendChild(document.createTextNode(profile.first));
     });
 }
 

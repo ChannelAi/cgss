@@ -11,7 +11,7 @@ window.onload = function() {
         return;
     }
     createIdolProfileTable(headerNames, selectedIdol[0]);
-    createEpisodesList(selectedIdolEpisodes);
+    createEpisodesList(selectedIdolEpisodes, selectedIdol[0].implementationdate);
 };
 
 
@@ -35,6 +35,8 @@ function createIdolProfileTable(columnInfo, idol)
     createProfileRow(row4, `${columnInfo.hobby}`, idol.hobby, null);
     const row5 = section.insertRow();
     createProfileRow(row5, `${columnInfo.cv}`, idol.cv, null);
+    const row6 = section.insertRow();
+    createProfileRow(row6, `${columnInfo.implementationdate}`, idol.implementationdate, null);
 }
 
 function chcekDataType(data, data2)
@@ -55,15 +57,24 @@ function createProfileRow(row, title, data1, data2)
     }
 }
 
-function createEpisodesList(episodes)
+function createEpisodesList(episodes, idolImplementationdate)
 {
     const table = document.querySelector("#episode");
 
+    const info = {
+        prevImpDate : new Date(idolImplementationdate)
+    };
     for(const episode of episodes) {
         const upperRow = table.insertRow();
+        const impDate = new Date(episode.implementationdate)
+        const interval = (impDate - info.prevImpDate) / 86400000;
+        info.prevImpDate = impDate;
         upperRow.insertCell().appendChild(document.createTextNode(episode.implementationdate));
         upperRow.insertCell().appendChild(document.createTextNode(episode.rarity));
         upperRow.insertCell().appendChild(document.createTextNode(episode.type));
+        const interValCell = upperRow.insertCell();
+        interValCell.className = "days";
+        interValCell.appendChild(document.createTextNode(interval));
         const nameCell = upperRow.insertCell();
         nameCell.colSpan = 2;
         nameCell.appendChild(document.createTextNode(episode.episode));
