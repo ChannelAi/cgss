@@ -27,12 +27,6 @@ window.onload = function() {
 
 /**
  * 
- * @param {*} id 
- * @param {*} type 
- * @param {*} name 
- * @param {*} episodes 
- * @param {*} today 
- * @returns 
  */
 function getEpisodeSummaryById(id, type, name, episodes, today)
 {
@@ -66,8 +60,6 @@ function getEpisodeSummaryById(id, type, name, episodes, today)
 
 /**
  * 
- * @param {*} idols 
- * @returns 
  */
 function getLatestEpisodes(idols)
 {
@@ -78,8 +70,6 @@ function getLatestEpisodes(idols)
 
 /**
  * 
- * @param {*} idols 
- * @param {*} targetTableId 
  */
 function createIdolList(idols, targetTableId)
 {
@@ -90,12 +80,16 @@ function createIdolList(idols, targetTableId)
         const anchor = document.createElement("a");
         anchor.href = `detail.html?id=${profile.id}`;
         anchor.innerText = profile.name;
+        const img = document.createElement("img");
+        img.src = `images/icons/icon_${profile.type}.png`;
+        img.width = 24;
+        img.height = 24;
+
         const idolRow = section.insertRow();
         idolRow.className = profile.type;
 
         const typeCell = idolRow.insertCell();
-        typeCell.className = profile.type;
-        typeCell.appendChild(document.createTextNode(profile.type));
+        typeCell.appendChild(img);
 
         idolRow.insertCell().appendChild(anchor);
         idolRow.insertCell().appendChild(document.createTextNode(profile.numberofepisodes));
