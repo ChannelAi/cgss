@@ -59,6 +59,7 @@ function createIdolListByNumbers(idols, divRow, divCol, divColId, numberofssr)
         idolRow.className = idol.type;
 
         const typeCell = idolRow.insertCell();
+        typeCell.className = "attr";
         typeCell.appendChild(img);
         idolRow.insertCell().appendChild(anchor);
         idolRow.insertCell().appendChild(document.createTextNode(joinEpisodeType(idol.episodeTypes)));
@@ -72,12 +73,6 @@ function createIdolListByNumbers(idols, divRow, divCol, divColId, numberofssr)
 
 /**
  * 
- * @param {*} id 
- * @param {*} type 
- * @param {*} name 
- * @param {*} episodes 
- * @param {*} today 
- * @returns 
  */
 function getEpisodeSummaryById(id, type, name, episodes, today)
 {

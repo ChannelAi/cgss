@@ -89,10 +89,13 @@ function createIdolList(idols, targetTableId)
         idolRow.className = profile.type;
 
         const typeCell = idolRow.insertCell();
+        typeCell.className = "attr";
         typeCell.appendChild(img);
 
         idolRow.insertCell().appendChild(anchor);
-        idolRow.insertCell().appendChild(document.createTextNode(profile.numberofepisodes));
+        const numbersCell = idolRow.insertCell();
+        numbersCell.className = "days"
+        numbersCell.appendChild(document.createTextNode(profile.numberofepisodes));
         idolRow.insertCell().appendChild(document.createTextNode(joinEpisodeType(profile.episodeTypes)));
 
         const waitingDaysCell = idolRow.insertCell();
