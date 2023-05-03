@@ -9,13 +9,13 @@ window.onload = function() {
         const idolProfile = getEpisodeSummaryById(profile.id, profile.type, profile.name, idolEpisodes, today);
         idolList.push(idolProfile);
     });
-    const sortedIdols = idolList.sort((a, b)=>a.waitingDays<b.waitingDays?1:-1);
 
     const maxSSRs = idolList.reduce((a, b)=>a.numberofepisodes>b.numberofepisodes?a:b);
     const minSSRs = idolList.reduce((a, b)=>a.numberofepisodes<b.numberofepisodes?a:b);
     const divRow = document.querySelector("#tables");
     const divColId = "#colssr";
     const baseCol = document.querySelector(divColId);
+    const sortedIdols = idolList.sort((a, b)=>a.waitingDays<b.waitingDays?1:-1);
     for(let i=maxSSRs.numberofepisodes; i>minSSRs.numberofepisodes; i--) {
         const idolsByNumbers = sortedIdols.filter(idol=>idol.numberofepisodes==i);
         createIdolListByNumbers(idolsByNumbers, divRow, baseCol, divColId, i);
@@ -39,10 +39,8 @@ window.onload = function() {
 function createIdolListByNumbers(idols, divRow, divCol, divColId, numberofssr)
 {
     const newCol = divCol.cloneNode(true);
-    const newId = `${divColId}${numberofssr}`;
-    newCol.id = newId;
+    newCol.id = `${divColId}${numberofssr}`;
     const tbody = newCol.getElementsByTagName("tbody")[0];
-    console.log(tbody);
     const caption = newCol.getElementsByTagName("caption")[0];
     caption.appendChild(document.createTextNode(`SSR:${numberofssr}枚`));
 
