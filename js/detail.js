@@ -14,7 +14,9 @@ window.onload = function() {
     createEpisodesList(selectedIdolEpisodes, selectedIdol[0].implementationdate);
 };
 
-
+/**
+ * プロフィール表を作成
+ */
 function createIdolProfileTable(columnInfo, idol)
 {
     const name = document.querySelector("#idolName");
@@ -39,11 +41,17 @@ function createIdolProfileTable(columnInfo, idol)
     createProfileRow(row6, `${columnInfo.implementationdate}`, idol.implementationdate, null);
 }
 
+/**
+ * 数値かどうか判定
+ */
 function chcekDataType(data, data2)
 {
     return isNaN(Number(data)) ? data : data2;
 }
 
+/**
+ * プロフィール行を作成
+ */
 function createProfileRow(row, title, data1, data2)
 {
     row.insertCell().appendChild(document.createTextNode(title));
@@ -57,6 +65,9 @@ function createProfileRow(row, title, data1, data2)
     }
 }
 
+/**
+ * 実装状況表を作成
+ */
 function createEpisodesList(episodes, idolImplementationdate)
 {
     const table = document.querySelector("#episode");

@@ -26,7 +26,7 @@ window.onload = function() {
 };
 
 /**
- * 
+ * アイドル毎のエピソード整理
  */
 function getEpisodeSummaryById(id, type, name, episodes, today)
 {
@@ -59,7 +59,7 @@ function getEpisodeSummaryById(id, type, name, episodes, today)
 }
 
 /**
- * 
+ * 指定アイドルの最新エピソード取得
  */
 function getLatestEpisodes(idols)
 {
@@ -69,7 +69,7 @@ function getLatestEpisodes(idols)
 }
 
 /**
- * 
+ * アイドル一覧の作成
  */
 function createIdolList(idols, targetTableId)
 {
@@ -107,6 +107,9 @@ function createIdolList(idols, targetTableId)
     });
 }
 
+/**
+ * 最新エピソード取得
+ */
 function setLatestEpisodes(episodes)
 {
     const latestEpisodes = getLatestEpisodes(episodes);
@@ -119,6 +122,9 @@ function setLatestEpisodes(episodes)
 
 }
 
+/**
+ * 実装タイプ文字列作成
+ */
 function joinEpisodeType(types)
 {
     const result = [];

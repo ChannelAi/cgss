@@ -9,7 +9,7 @@ window.onload = function() {
         const idolProfile = getEpisodeSummaryById(profile.id, profile.type, profile.name, idolEpisodes, today);
         idolList.push(idolProfile);
     });
-    const sortedIdols = idolList.sort((a, b)=>a.waitingDays<b.waitingDays);
+    const sortedIdols = idolList.sort((a, b)=>a.waitingDays<b.waitingDays?1:-1);
 
     const maxSSRs = idolList.reduce((a, b)=>a.numberofepisodes>b.numberofepisodes?a:b);
     const minSSRs = idolList.reduce((a, b)=>a.numberofepisodes<b.numberofepisodes?a:b);
@@ -34,7 +34,7 @@ window.onload = function() {
 };
 
 /**
- * 
+ * SSR枚数別表の作成
  */
 function createIdolListByNumbers(idols, divRow, divCol, divColId, numberofssr)
 {
@@ -72,7 +72,7 @@ function createIdolListByNumbers(idols, divRow, divCol, divColId, numberofssr)
 }
 
 /**
- * 
+ * アイドル毎のエピソード整理
  */
 function getEpisodeSummaryById(id, type, name, episodes, today)
 {
@@ -105,6 +105,9 @@ function getEpisodeSummaryById(id, type, name, episodes, today)
     return result;
 }
 
+/**
+ * 実装タイプ文字列作成
+ */
 function joinEpisodeType(types)
 {
     const result = [];
