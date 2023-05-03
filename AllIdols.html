@@ -12,10 +12,10 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css"> -->
  
     <style type="text/css">
-      td.Cu { background-color: #ff0073; color : white;}
-      td.Co { background-color: #006aff; color : white;}
-      td.Pa { background-color: #ffaa00; color : white;}
-      td.days {text-align : right;}
+      th.attr {width: 64px; text-align: center;}
+      th.days {width: 80px;}
+      td.attr {text-align: center;}
+      td.days {text-align: right;}
     </style>
     <title>アイドル一覧</title>
   </head>
@@ -41,7 +41,7 @@
                 <caption id="latestEpisode" style="caption-side:top"></caption>
                 <thead id="header" class="thead-light">
                     <tr>
-                        <th>属性</th><th>名前</th><th>SSR数</th><th>種別</th><th>経過日</th><th>最終実装日</th>
+                        <th class="attr">属性</th><th>名前</th><th class="days">SSR数</th><th>種別</th><th class="days">経過日</th><th>最終実装日</th>
                         <!--<th>初実装日</th>-->
                     </tr>
                 </thead>
