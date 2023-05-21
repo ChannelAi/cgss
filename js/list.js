@@ -7,7 +7,6 @@ window.onload = function() {
     const idolEpisodes = window.episodes;
     //const headerNames = idolProfiles.filter(profile=>profile.id=="0");
 
-    
     const idolList = [];
     idolProfiles.forEach((profile)=>{
         const idolProfile = getEpisodeSummaryById(profile.id, profile.type, profile.name, idolEpisodes, today);
