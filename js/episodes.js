@@ -80,7 +80,9 @@ function updateDisplay()
  */
 function createSSRList(episodes, profiles, targetTableId)
 {
-    const episodeTypeNames = [{name:"恒常", class:"Permanent"}, {name:"期間限定", class:"Limited"}, {name:"ブラン限定", class:"Blanc"}, {name:"ノワール限定", class:"Noir"}];
+    const episodeTypeNames = [{name:"恒常", class:"Permanent"}, {name:"期間限定", class:"Limited"}
+                            , {name:"ブラン限定", class:"Blanc"}, {name:"ノワール限定", class:"Noir"}
+                            , {name:"ドミナント限定", class:"Dominant"}];
     const section = document.querySelector(targetTableId);
 
     episodes.forEach((episode)=>{
